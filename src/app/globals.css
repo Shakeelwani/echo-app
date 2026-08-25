@@ -101,3 +101,63 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-down {
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.tilt-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tilt-card:hover {
+  transform: perspective(600px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  box-shadow: 0 20px 40px rgba(124, 111, 240, 0.15);
+}
+
+.lift-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.lift-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 111, 240, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-slow,
+  .bounce-down {
+    animation: none;
+  }
+  .tilt-card:hover,
+  .lift-card:hover {
+    transform: none;
+  }
+}
